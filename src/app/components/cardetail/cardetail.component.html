@@ -1,0 +1,25 @@
+<div *ngFor="let cardetail of carDetails" class="container" style="margin-top:50px;">
+    <div class="row">
+        <div class="col-big-12">
+            <div class="card-sl">
+                <div class="card-image">
+                   
+                    <img
+                        src="https://localhost:44365/uploads/images/{{cardetail.imagePath}}" />
+                </div>
+
+                <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+                <div class="card-heading">
+                   
+                    {{cardetail.model}}
+                </div>
+                <div class="card-text">
+                    {{cardetail.description}}
+                </div>
+                <div class="card-text">
+                    {{cardetail.dailyPrice}}
+                </div>
+                <a href="#" class="card-button"> Rent</a>
+            </div>
+        </div>
+    </div>  
