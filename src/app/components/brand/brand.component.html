@@ -1,15 +1,3 @@
-<!-- <table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Brand Name</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let brand of brands">
-      <td>{{ brand.id }}</td>
-      <td>{{ brand.name }}</td>
-    </tr>
-  </table> -->
 <ul class="list-group">
   <li (click)="makeAllCarsActive()" [class]="getAllBrandClass()" routerLink="/cars" >All Brands</li>
   <li
@@ -21,3 +9,12 @@
     {{ brand.name }}
   </li>
 </ul>
+
+
+  <form [formGroup]="brandForm" (ngSubmit)="submit()">
+  <select formControlName="brand" class="form-select" aria-label="Default select example">
+    <option [ngValue]="null">Select Brand</option>
+    <option *ngFor="let brand of brands" [ngValue]="brand.id">{{brand.name}}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>

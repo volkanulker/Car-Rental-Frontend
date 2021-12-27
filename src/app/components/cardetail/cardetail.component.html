@@ -1,25 +1,59 @@
-<div *ngFor="let cardetail of carDetails" class="container" style="margin-top:50px;">
-    <div class="row">
-        <div class="col-big-12">
-            <div class="card-sl">
-                <div class="card-image">
-                   
-                    <img
-                        src="https://localhost:44365/uploads/images/{{cardetail.imagePath}}" />
-                </div>
-
-                <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
-                <div class="card-heading">
-                   
-                    {{cardetail.model}}
-                </div>
-                <div class="card-text">
-                    {{cardetail.description}}
-                </div>
-                <div class="card-text">
-                    {{cardetail.dailyPrice}}
-                </div>
-                <a href="#" class="card-button"> Rent</a>
-            </div>
+<!-- <div
+  *ngFor="let cardetail of carDetails"
+  class="container"
+  style="margin-top: 50px"
+>
+  <div class="row">
+    <div class="col-big-12">
+      <div class="card-sl">
+        <div class="card-image">
+          <img
+            src="https://localhost:44365/uploads/images/{{cardetail.imagePath}}"
+          />
         </div>
-    </div>  
+
+        <div class="card-heading d-flex justify-content-center">
+          {{ cardetail.brandName }} {{ cardetail.model }}
+        </div>
+        <div class="card-text">
+          {{ cardetail.description }}
+        </div>
+        <div class="card-text">Price:{{ cardetail.dailyPrice }}</div>
+        <a (click)="addToCart(cardetail)" class="card-button"> Rent</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+      <div
+        *ngFor="let cardetail of carDetails"
+        class="card"
+        style="width: 60rem"
+      >
+        <img
+          class="card-img-top"
+          src="https://localhost:44365/uploads/images/{{ cardetail.imagePath }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ cardetail.brandName }} {{ cardetail.model }}</h5>
+          <p class="card-text">
+            {{ cardetail.description }}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Color: {{cardetail.colorName}}</li>
+          <li class="list-group-item">Daily Price: {{ cardetail.dailyPrice }}</li>
+          <li class="list-group-item"><app-date-picker></app-date-picker></li>
+        </ul>
+        <div class="card-body">
+          <a (click)="rent(cardetail)" class="card-button"> Rent</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm"></div>
+  </div>
+</div>

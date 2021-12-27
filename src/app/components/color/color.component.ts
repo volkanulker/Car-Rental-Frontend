@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ColorService } from './../../services/color.service';
 import { Color } from './../../models/color';
 import { Component, OnInit } from '@angular/core';
@@ -11,9 +12,17 @@ export class ColorComponent implements OnInit {
   colors:Color[] = [];
   currentColor:Color;
   isAllColorsClicked:boolean = true;
-  constructor(private colorService:ColorService) { }
+
+  colorForm:FormGroup;
+
+  color:Color;
+
+  constructor(private formBuilder:FormBuilder, private colorService:ColorService) { }
 
   ngOnInit(): void {
+    this.colorForm  = this.formBuilder.group({
+      color:[null]
+    });
     this.getColors();
   }
 
@@ -53,5 +62,10 @@ export class ColorComponent implements OnInit {
     console.log("all cars clicked.");
     
   }
+  submit() {
+    console.log("Form Submitted")
+    console.log(this.colorForm.value)
+  }
+
 
 }

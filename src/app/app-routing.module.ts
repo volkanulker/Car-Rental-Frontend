@@ -1,3 +1,5 @@
+import { PaymentComponent } from './components/payment/payment.component';
+import { CarFilterComponent } from './components/car-filter/car-filter.component';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { CarComponent } from './components/car/car.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +12,9 @@ const routes: Routes = [
   { path: 'cars', redirectTo: 'home', pathMatch: 'full' },
   {path:"cars/color/:colorId", component:CarComponent},
   {path:"cars/cardetail/:carId", component:CardetailComponent},
+  {path:"cars/getfilteredcars/:brandId/:colorId/:minDailyPrice/:maxDailyPrice", component:CarComponent},
+  {path:"cars/cardetail/:carId/payment", component:PaymentComponent}
+
   
 
 

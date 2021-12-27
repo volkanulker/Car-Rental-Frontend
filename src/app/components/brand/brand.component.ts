@@ -1,6 +1,7 @@
 import { Brand } from './../../models/brand';
 import { BrandService } from './../../services/brand.service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-brand',
@@ -11,9 +12,15 @@ export class BrandComponent implements OnInit {
   brands:Brand[] = [];
   currentBrand:Brand;
   isAllCarsClicked:boolean = true;
-  constructor(private brandService:BrandService) { }
+  brandForm:FormGroup;
+
+  brand:Brand;
+  constructor(private formBuilder:FormBuilder,private brandService:BrandService) { }
 
   ngOnInit(): void {
+    this.brandForm  = this.formBuilder.group({
+      brand:[null]
+    });
    this.getBrands();
   }
 
@@ -54,6 +61,10 @@ export class BrandComponent implements OnInit {
     this.isAllCarsClicked = true;
     console.log("all cars clicked.");
     
+  }
+  submit() {
+    console.log("Form Submitted")
+    console.log(this.brandForm.value)
   }
 
 

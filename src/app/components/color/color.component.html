@@ -1,16 +1,4 @@
-<!-- <table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let color of colors">
-      <td>{{ color.name }}</td>
-    </tr>
-  </table> -->
-
-  <ul class="list-group">
+<ul class="list-group">
     <li (click)="makeAllColorsActive()" [class]="getAllColorClass()" routerLink="/cars" >All Colors</li>
     <li
       (click)="setCurrentColor(color)"
@@ -21,4 +9,12 @@
       {{ color.name }}
     </li>
   </ul>
-  
+
+  <form [formGroup]="colorForm" (ngSubmit)="submit()">
+    <select formControlName="color" class="form-select" aria-label="Default select example">
+      <option [ngValue]="null">Select Color</option>
+      <option *ngFor="let color of colors" [ngValue]="color.id">{{color.name}}</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+

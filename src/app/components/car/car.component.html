@@ -1,24 +1,53 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Brand Name</th>
-      <th>Color Name</th>
-      <th>Model</th>
-      <th>Model Year</th>
-      <th>Daily Price</th>
-    </tr>
-  </thead>
-  <tr
-    (click)="setCurrentCar(car)"
-    routerLink="/cars/cardetail/{{ car.id }}"
-    *ngFor="let car of cars"
-  >
-    <td>{{ car.id }}</td>
-    <td>{{ car.brandName }}</td>
-    <td>{{ car.colorName }}</td>
-    <td>{{ car.model }}</td>
-    <td>{{ car.modelYear }}</td>
-    <td>{{ car.dailyPrice }}</td>
-  </tr>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <app-car-filter></app-car-filter>
+    </div>
+
+    <div class="col-md-9">
+      <div class="mb-3">
+        <label for="filterText" class="form-label">Search Cars</label>
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="filterText"
+          placeholder="Type Car Model"
+        />
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <!-- <th>Id</th> -->
+            <th>Model</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Year</th>
+            <th>Daily Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars | filterCars: filterText">
+            <!-- <td>{{ car.id }}</td> -->
+            <td>{{ car.model }}</td>
+            <td>{{ car.brandName }}</td>
+            <td>{{ car.colorName }}</td>
+            <td>{{ car.modelYear }}</td>
+            <td>{{ car.dailyPrice }}</td>
+            <td>
+              <button
+                (click)="setCurrentCar(car)"
+                routerLink="/cars/cardetail/{{ car.id }}"
+                type="button"
+                class="btn btn-success"
+              >
+                Go To Details
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
