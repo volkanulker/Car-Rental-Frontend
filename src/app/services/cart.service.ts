@@ -41,5 +41,12 @@ export class CartService {
    return this.list().length;
   }
 
+  clearCart(){
+    while (CartItems.length > 0) {
+      CartItems.pop();
+      
+    }
+  }
+
 
 }

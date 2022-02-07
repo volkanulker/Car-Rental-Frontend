@@ -39,14 +39,12 @@
           alt="Card image cap"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ cardetail.brandName }} {{ cardetail.model }}</h5>
-          <p class="card-text">
-            {{ cardetail.description }}
-          </p>
+          <h2 class="card-title">{{ cardetail.brandName }} {{ cardetail.model }}</h2>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Color: {{cardetail.colorName}}</li>
-          <li class="list-group-item">Daily Price: {{ cardetail.dailyPrice }}</li>
+          <li class="list-group-item"><h2>Color</h2> <h3>{{cardetail.colorName}}</h3></li>
+          <li class="list-group-item"><h2>Daily Price:</h2> <h3>{{ cardetail.dailyPrice }}</h3> </li>
+          <li class="list-group-item"><h2>Description: </h2><h3>{{cardetail.description}}</h3></li>
           <li class="list-group-item"><app-date-picker></app-date-picker></li>
         </ul>
         <div class="card-body">

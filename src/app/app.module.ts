@@ -26,6 +26,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { PaymentSuccessfullComponent } from './components/payment-successfull/payment-successfull.component';
+import { CarCardComponent } from './components/car-card/car-card.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 
 @NgModule({
   declarations: [
@@ -43,7 +52,15 @@ import { MatNativeDateModule } from '@angular/material/core';
     FilterCarsPipe,
     CarFilterComponent,
     PaymentComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    CarAddComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    PaymentSuccessfullComponent,
+    CarCardComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -54,12 +71,13 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-
-    
+    MatProgressSpinnerModule,
+    FontAwesomeModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
     
   ],
   providers: [],

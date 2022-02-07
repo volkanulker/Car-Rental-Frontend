@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { CarDetail } from '../models/carDetail';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,11 @@ export class CarService {
     console.log("new Path: "+ newPath);
     
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
+
+  add(car:Car):Observable<ResponseModel>{
+    let newPath: string = this.apiUrl + "/Cars/add";
+    return this.httpClient.post<ResponseModel>(newPath, car);
   }
 
 
