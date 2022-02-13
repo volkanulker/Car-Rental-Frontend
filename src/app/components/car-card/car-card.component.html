@@ -4,30 +4,31 @@
       <app-car-filter></app-car-filter>
     </div>
     <div class="col-md-9">
-        <div class="mb-3">
-            <label for="filterText" class="form-label">Search Cars</label>
-            <input
-              type="text"
-              [(ngModel)]="filterText"
-              class="form-control"
-              id="filterText"
-              placeholder="Type Car Model"
-            />
-          </div>
+      <div class="mb-3">
+        <label for="filterText" class="form-label">Search Cars</label>
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="filterText"
+          placeholder="Type Car Model"
+        />
+      </div>
 
       <div class="row">
-
-        <div class="card" style="width: 18rem">
+        <div *ngFor="let carCard of carCards | filterCarCards: filterText" class="card" style="width: 18rem">
           <img
             class="card-img-top"
-            src="https://arabahaber.com.tr/wp-content/uploads/2020/06/2020-bmw-m5-ve-m5-competition.jpg"
+            src="https://localhost:44365/uploads/images/{{ carCard.imagePath }}"
             alt="Card image cap"
           />
 
           <div class="card-body">
-            <h3 class="card-title">BMW M5</h3>
+            <h3 class="card-title">
+              {{ carCard.brandName }} {{ carCard.model }}
+            </h3>
             <h4>Features</h4>
-            <hr>
+            <hr />
             <div class="row">
               <div class="col-md-6">
                 <div class="row">
@@ -35,7 +36,9 @@
                     <fa-icon [icon]="faGasPump"></fa-icon>
                   </div>
                   <div class="col-md-6">
-                    <h5><b>Benzin</b></h5>
+                    <h5>
+                      <b>{{ carCard.fuelName }}</b>
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -45,7 +48,9 @@
                     <fa-icon [icon]="faCogs"></fa-icon>
                   </div>
                   <div class="col-md-8">
-                    <h5><b>Otomatik</b></h5>
+                    <h5>
+                      <b>{{ carCard.transmissionName }}</b>
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -58,7 +63,9 @@
                     <fa-icon [icon]="faUsers"></fa-icon>
                   </div>
                   <div class="col-md-6">
-                    <h5><b>4</b></h5>
+                    <h5>
+                      <b>{{ carCard.numberOfSeats }}</b>
+                    </h5>
                   </div>
                 </div>
               </div>
@@ -68,31 +75,26 @@
                     <fa-icon [icon]="faLiraSign"></fa-icon>
                   </div>
                   <div class="col-md-6">
-                    <h5><b>85</b></h5>
+                    <h5>
+                      <b>{{ carCard.dailyPrice }}</b>
+                    </h5>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="d-grid gap-2">
-              <button class="btn btn-warning" type="button">Details</button>
-            </div>
           </div>
+          <div class="d-grid gap-2">
+            <button
+              (click)="setCurrentCar(carCard)"
+              routerLink="/cars/cardetail/{{ carCard.id }}"
+              class="btn btn-warning"
+              type="button"
+            >
+              Details
+            </button>
+          </div>
+          <br />
         </div>
-
-
-
-
-
-
-       
-
-
-        
-
-
-
-
       </div>
     </div>
   </div>

@@ -70,12 +70,7 @@ export class CarFilterComponent implements OnInit {
       let colorId = this.carFilterForm.value.color;
       let minDailyPrice = this.carFilterForm.value.minimumDailyPrice;
       let maxDailyPrice = this.carFilterForm.value.maximumDailyPrice;
-  
-      console.log(minDailyPrice);
-      console.log(maxDailyPrice);
-  
-  
-  
+
       this.toastrService.success("Cars are filtered.", "Filter");
       this.router.navigateByUrl("/cars/getfilteredcars/" + brandId + "/" + colorId + "/" + minDailyPrice + "/" + maxDailyPrice);
       this.carFilterForm.reset();

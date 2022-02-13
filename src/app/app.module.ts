@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarComponent } from './components/car/car.component';
+//import { CarComponent } from './components/car/car.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CustomerComponent } from './components/customer/customer.component';
@@ -33,13 +33,14 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { PaymentSuccessfullComponent } from './components/payment-successfull/payment-successfull.component';
 import { CarCardComponent } from './components/car-card/car-card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FilterCarCardsPipe } from './pipes/filter-car-cards.pipe';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarComponent,
+    //CarComponent,
     NaviComponent,
    
     RentalComponent,
@@ -58,6 +59,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ColorAddComponent,
     PaymentSuccessfullComponent,
     CarCardComponent,
+    FilterCarCardsPipe,
 
 
 
